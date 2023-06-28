@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css_rools %}
+<link rel="stylesheet" href="{% static 'css/firms2.css' %}">
+<style>
+    a{
+        text-decoration: none;
+    }
+    section.main_inf{
+        align-items: start;
+    }
+    section.main_inf>p{
+        align-self: center;
+    }
+
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="center_block">
+    <section class="main_photo">
+        <img class="big_photo" src="{{firm.photo.url}}">
+    </section>
+    <section class="help">
+        <section class="main_inf">
+            <p class="block_title" >{{firm.title}}</p>
+            <span>{{firm.main_inf}}</span><br>
+            <span>Адресс: {{firm.location}}</span><br>
+            <span>Нас можно найти: 
+            {% for place in firm.place.values %}
+                {{place.place}}
+            {% endfor %}
+            </span>
+            <span>Продукция:
+            {% for prod in firm.productions.values %}
+                {{prod.title}}
+            {% endfor %}
+            </span>
+        </section>
+        <section class="people">    
+            <p class="block_title">НАША КОМАНДА: {{firm.count_person}}</p>
+            <div class="cards_box">
+                {% for i in firm.person.all %}
+                    <a href={{i.get_absolute_url}}>
+                        <div class="card" id="1">
+                            <div class="card_photo">
+                                <img class="photo" src="{{i.photo.url}}">
+                            </div>
+                            <div class="cards_inf">
+                                <p class="card_name"> {{i.name}}</p>
+                                <span> {{i.profession}} </span>
+                                <span> {{i.current_place}} </span>
+                            </div>
+                        </div>
+                    </a>    
+                {% endfor %}
+            </div>
+        </section>
+        <section class="navigation">
+            <!--<p class="block_title">LOCATION</p>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2451.102495986307!2d23.739168515791732!3d52.09606617973614!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47210becd130effb%3A0xa" width=80% height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>-->
+        </section>
+        {% endblock %}
+    </section>
+</div>        

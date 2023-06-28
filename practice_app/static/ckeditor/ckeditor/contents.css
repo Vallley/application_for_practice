@@ -1,0 +1,19 @@
+/*
+Copyright (c) 2003-2023, CKSource Holding sp. z o.o. All rights reserved.
+For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
+*/
+
+body
+{
+	/* Font */
+	/* Emoji fonts are added to visualise them nicely in Internet Explorer. */
+	/* Text color */
+	color: #32435f;
+
+	/* Remove the background color to make it transparent. */
+	background-color: #fff;
+
+}
+
+
+

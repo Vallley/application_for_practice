@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load app_tags %}
+
+{% block css_rools %}
+<link rel="stylesheet" href="{% static 'css/firms_page5.css' %}">
+<style>
+    .mini_span{
+        font-size: 15px;
+    }
+    .params > a{
+        color: #32435f96;
+        margin-top: 10px;
+        margin-left: 20px;
+        transition-duration: 0.3s;
+    }
+    .params > a:hover{
+        color: #32435f;
+    }
+    
+    .add_firm{
+        text-align: start;
+        padding: 10px 300px;
+    }
+
+    .form-control{
+        width: 100%;
+        border: 1px solid #32435f;
+    }
+
+    .form-control:focus-visible{
+        box-shadow: #32435f;
+    }
+
+
+</style>
+{% endblock %}
+
+{% block content %}
+<section class="add_firm">
+    <h1>Добавление предприятия</h1>
+    <form action="{% url 'add_firm' %}">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <button class="param_button" type="submit"> Применить</button>
+    </form>
+</section>    
+{% endblock %}

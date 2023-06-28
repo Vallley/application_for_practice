@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load app_tags %}
+
+{% block css_rools %}
+<link rel="stylesheet" href="{% static 'css/firms_page5.css' %}">
+<style>
+    .mini_span{
+        font-size: 15px;
+    }
+    .params > a{
+        color: #32435f96;
+        margin-top: 10px;
+        margin-left: 20px;
+        transition-duration: 0.3s;
+    }
+    .params > a:hover{
+        color: #32435f;
+    }
+
+    .form-control{
+        width: 500px;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<section class="main_section">
+    <div class="center_block">
+        <div class="params">
+            <a href="{% url 'add_firm' %}">Добавить предприятие</a>
+            <input type="checkbox" id="checkbox_menu">
+            <label for="checkbox_menu" class="hamburger"><img class="angle" src="{% static 'img/angle.png' %}"></label>
+            <div class="param_menu">
+                <form action="{% url 'filter' %}" method="get">
+                    <div class="place">
+                    <h4>Местоположение:</h4>
+                        <ul>
+                            {% for i in view.get_place %}
+                            <li type="none"><label class="i">                
+                                <input type="checkbox" class="custom_checkbox" name="place" value="{{i.pk}}"> {{i.place}}
+                                <span class="checkmark"></span>
+                            </label></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+
+                    <div class="kind_production">    
+                        <h4>Вид продукции:</h4>
+                        <ul>
+                            {% for i in view.get_production %}
+                            <li type="none"><label class="i">                                
+                                <input type="checkbox" class="custom_checkbox" name="production" value="{{i.pk}}"> {{i.title}}
+                                <span class="checkmark"></span>
+                            </label></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    
+                    <button class="param_button" type="submit"> Применить</button>
+                </form>
+            </div>    
+        </div>
+        <div class="cards_box">
+            {% for i in firms %}
+            <a href="{{i.get_absolute_url}}">
+                <div class="card">
+                    <div class="card_photo">
+                        <img class="photo" src="{{i.photo.url}}">
+                    </div>
+                
+                    <div class="cards_inf">
+                        <p class="card_name"> {{i.title}} </p>
+                        {% for prod in i.productions.values %}
+                            <span class="mini_span"> {{prod.title}} </span><br> 
+                        {% endfor %}
+                        {% for place in i.place.values %}
+                            <span class="mini_span"> {{place.place}} </span><br>
+                        {% endfor %}
+                        <span class="mini_span">Кол-во сотрудников: {{i.count_person}}</span>
+                    </div>
+                </div>
+            </a>    
+            {% endfor %}
+        </div>
+    </div> 
+</section> 
+{% endblock %}

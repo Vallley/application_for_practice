@@ -1,0 +1,421 @@
+*{
+    color: #32435f;
+}
+
+header{
+    height: 50px;
+    background: #a67f78;
+}
+
+body{
+    margin: 0;
+}
+
+.main_menu li{
+    display: inline-block;
+    padding: 0px 15px;
+    z-index: 20;
+}
+
+ul{
+    text-decoration: none;
+    padding: 0px;
+}
+
+a{
+    text-decoration: none;
+    color: #e1dcd9;
+    font-size: 20px;
+    transition-duration: 0.4s;
+    z-index: 20;
+}
+
+li :hover{
+    color: #32435f;
+}
+
+section.main_section{
+    background: #e1dcd95f;
+    display: flex;
+    justify-content: center;
+}
+
+div.main_menu{
+    display: flex;
+    background: #a67f78;
+    justify-content: center;
+    align-items: center;
+}
+
+.center_block{
+    width: 1250px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.params{
+    display: flex;
+    flex-direction: column;
+}
+
+.param_menu{
+    padding: 10px;
+    margin: 15px;
+    background: white;
+    display: inline-block;
+    height: fit-content;
+    position: sticky;
+    top: 0;
+}
+
+.cards_box{
+    width: 75%;
+    margin: 10px;
+}
+
+.slider {
+    -webkit-appearance: none;
+    width: 200px;
+    height: 7px;
+    background: #e1dcd9;
+    opacity: 0.7;
+    -webkit-transition: 0.3s;
+    transition-duration: 0.3s;
+    border-radius: 5px;
+  }
+  
+.slider:hover {
+    opacity: 1;
+}
+  
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #32435f;
+    cursor: pointer;
+  }
+  
+.slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #32435f;
+    cursor: pointer;
+}
+  
+output {
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.custom_checkbox{
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+    
+}
+
+label.i{
+    display: inline-flex;
+    align-items: center;
+    flex-direction: row-reverse;
+}
+
+.checkmark{
+    height: 11px;
+    width: 11px;
+    margin-right: 5px;
+    border: 1px solid #32435f;
+    border-radius: 15%;
+    transition-duration: 0.2s;  
+}
+
+.checkmark:hover{
+    background-color: #32435f76;
+}
+
+.i:hover{
+    cursor: pointer;
+}
+
+.custom_checkbox:checked ~ .checkmark{
+    background-image: url(check.png);
+    background-color: #32435fd0;
+    background-position: 50% 50%;
+    background-size: cover;
+}
+
+.checkmark:active{
+    background-color: #32435f;
+}
+
+.param_button{
+    border: 1px solid #32435f;
+    color: #32435f;
+    display: block;
+    padding: 3px;
+    margin: 0 auto;
+    width: 100px;
+    text-align: center;
+    border-radius: 15px;
+    transition-duration: 0.3s;
+}
+
+.param_button:hover{
+    background-color: #32435fd0;
+    color: #e1dcd9;
+    cursor: pointer;
+}
+
+.cards_box{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.card{
+    max-width: 400px;
+    max-height: 200px;
+    min-height: 200px;
+    display: flex;
+    margin: 5px;
+    background: white;
+    overflow: hidden;
+    box-shadow: 0px 0px 7px 1px #32435f5a;
+}
+
+.card_photo{
+    max-width: 50%;
+    min-width: 50%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.card_photo>img{
+    transition-duration: 0.4s;
+}
+
+img.photo{
+    overflow: hidden;
+    filter: grayscale(0.7);
+}
+
+.card_photo:hover>img{
+    transform: scale(1.2);
+    filter: grayscale(0);
+    cursor: pointer;
+}
+
+.cards_inf{
+    padding: 0px 10px;
+}
+
+p.card_name{
+    font-size: 20px;
+}
+
+footer{
+    height: 50px;
+    background: #a67f78;
+}
+
+#checkbox_menu{
+    position: fixed;
+    z-index: 5;
+    margin: 20px;
+    opacity: 0;
+    height: 10px;
+    width: 10px;
+}
+
+.hamburger{
+    cursor: pointer;
+    height: 20px;
+    display: none;
+    width: 20px;
+    margin: 10px;
+}
+
+i{
+    display: block;
+    color: #e1dcd9;
+    font-size: 20px;
+    text-align: center;
+}
+
+.angle{
+    height: 30px;
+    width: 30px;
+}
+
+#option1,
+#option2{
+    display: none;
+}
+
+.menu_hamburger,
+.log_hamburger{
+    cursor: pointer;
+    height: 20px;
+    display: none;
+    width: 20px;
+    margin: 10px;
+}
+
+.radio-container1 > ul,
+.radio-container2 > ul{
+    height: 20px;
+}
+
+.radio-container1,
+.radio-container2{
+    display: flex;
+    align-items: center;
+    height: 50px;
+}
+
+.radio-container2{
+    flex-direction: row-reverse;
+}
+
+@media (max-width: 1260px) {
+
+    .cards_box{
+        margin-top: 35px;
+    }
+    
+    .center_block{
+        width:100%
+    }
+
+    .params{
+        transition-duration: 0.5s;
+        width: 20px;
+        position: absolute;
+    }
+
+    .param_menu{
+        padding: 5px;
+        transform: translateX(-320px);
+        overflow: hidden;
+        transition-duration: 0.5s;
+        margin: 0;
+    }
+
+    .cards_box{
+        width: 100%;
+        z-index: 1;
+    }
+
+    .params:has(#checkbox_menu:checked){
+        width: 312px;
+        position: absolute;
+    }
+
+    #checkbox_menu:checked ~ .param_menu{
+        padding: 5px;
+        display: block;
+        background-color: white;
+        height: fit-content;
+        z-index: 30;
+        width: 100%;
+        margin: 0;
+        transform: translateX(0px);
+    
+    }
+
+    .hamburger{
+        display: block;
+        transition-duration: 0.5s;
+        z-index: 12;
+    }
+
+    #checkbox_menu:checked ~ .hamburger{
+        transform: rotate(90deg);
+        transform-origin: center;
+        z-index: 12;
+    }
+
+    .main_section::after{
+        content: '';
+        position: absolute;
+        height: 100%;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: #32435f00;
+        transition-duration: 0.5s;
+        z-index: -1;
+    }
+
+    .main_section:has(#checkbox_menu:checked)::after{
+        background: #000000ac;
+        z-index: 10;
+    }
+
+}
+
+@media (max-width: 540px) {
+
+    .menu_hamburger,
+    .log_hamburger{
+        display: block;
+    }
+
+    .media_menu,
+    .log{
+        width: 0px;
+        transition-duration: 0.5s;
+        overflow: hidden;
+    }
+
+    #option1:checked ~ .media_menu{
+        width: 300px;
+    }
+
+    #option2:checked ~ .log{
+        width: 300px;
+    }
+}
+
+@media (max-width: 840px) {
+    .card{
+        width: 100%;
+    }
+
+    .center_block{
+        width: 100%;
+    }
+
+    .cards_box{
+    justify-content: space-around;
+    }
+
+    .main_menu li{
+        padding: 0px 4px;
+    }
+
+    #option1:checked ~ .media_menu{
+        width: 250px;
+    }
+
+    #option2:checked ~ .log{
+        width: 250px;
+    }
+
+}
+
+@media (max-width: 430px) {
+
+    .cards_box{
+        min-height: 0%;
+        width: 95%;
+    }
+    
+}
