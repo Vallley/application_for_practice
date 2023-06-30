@@ -14,10 +14,10 @@ jobs:
         python-version: [3.8, 3.9, 3.10, 3.11]
     steps:
       - uses: actions/checkout@v2
-      - name: Install Python ${{ maxrix.python-version }}
+      - name: Install Python ${{ matrix.python-version }}
         uses: actions/setup-python@v2
         with: 
-          python-version: ${{ maxrix.python-version }}
+          python-version: ${{ matrix.python-version }}
       - name: Install debs
         run: |
           python -m pip install --upgrade pip
