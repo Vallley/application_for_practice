@@ -1,20 +1,12 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block css_rools %}
-<link rel="stylesheet" href="{% static 'css/firms2.css' %}">
-<style>
-    a{
-        text-decoration: none;
-    }
-    section.main_inf{
-        align-items: start;
-    }
-    section.main_inf>p{
-        align-self: center;
-    }
+{% block title %}
+{{firm.title}}
+{% endblock %}
 
-</style>
+{% block css_rools %}
+<link rel="stylesheet" href="{% static 'css/firms3.css' %}">
 {% endblock %}
 
 {% block content %}

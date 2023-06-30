@@ -11,40 +11,35 @@ body{
     margin: 0;
 }
 
+a{
+    color: #e1dcd9;
+    text-decoration: none;
+    z-index: 20;
+    transition-duration: 0.3s;
+    font-size: 20px;
+}
+
+p{
+    margin: 5px 0px;
+    font-size: 25px;
+}
+
 .main_menu li{
     display: inline-block;
     padding: 0px 15px;
     z-index: 20;
 }
 
+ul li{
+    list-style: none;
+}
+
 ul{
-    text-decoration: none;
     padding: 0px;
 }
 
-a{
-    text-decoration: none;
-    color: #e1dcd9;
-    font-size: 20px;
-    transition-duration: 0.4s;
-    z-index: 20;
-}
-
-li :hover{
-    color: #32435f;
-}
-
-section.main_section{
-    background: #e1dcd95f;
-    display: flex;
-    justify-content: center;
-}
-
-div.main_menu{
-    display: flex;
-    background: #a67f78;
-    justify-content: center;
-    align-items: center;
+.none{
+    font-size: 15px;
 }
 
 .center_block{
@@ -53,170 +48,144 @@ div.main_menu{
     justify-content: space-between;
 }
 
+ul.people{
+    text-decoration: none;
+    padding: 0px;
+}
+
+a.menu_link{
+    color: #e1dcd9;
+    font-size: 20px;
+    transition-duration: 0.4s;
+}
+
+li :hover{
+    color: #32435f;
+}
+
+.main_section{
+    background: #e1dcd95f;
+    display: flex;
+    justify-content: center;
+}
+
+.main_menu{
+    display: flex;
+    background: #a67f78;
+    align-items: center;
+    justify-content: center;
+}
+
 .params{
     display: flex;
     flex-direction: column;
+    width: 312px;
+    margin: 15px 10px;
 }
 
 .param_menu{
     padding: 10px;
-    margin: 15px;
     background: white;
     display: inline-block;
     height: fit-content;
-    position: sticky;
     top: 0;
+    width: 312px;
+}
+
+.param_menu > a{
+    color: #32435f82;
+    margin-top: 10px;
+    transition-duration: 0.3s;
+}
+
+.param_menu > a:hover{
+    color: #32435f;
 }
 
 .cards_box{
     width: 75%;
     margin: 10px;
-}
-
-.slider {
-    -webkit-appearance: none;
-    width: 200px;
-    height: 7px;
-    background: #e1dcd9;
-    opacity: 0.7;
-    -webkit-transition: 0.3s;
-    transition-duration: 0.3s;
-    border-radius: 5px;
-  }
-  
-.slider:hover {
-    opacity: 1;
-}
-  
-.slider::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background: #32435f;
-    cursor: pointer;
-  }
-  
-.slider::-moz-range-thumb {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background: #32435f;
-    cursor: pointer;
-}
-  
-output {
-    font-size: 17px;
-    font-weight: 600;
-}
-
-.custom_checkbox{
-    position: absolute;
-    z-index: -1;
-    opacity: 0;
-    
-}
-
-label.i{
-    display: inline-flex;
-    align-items: center;
-    flex-direction: row-reverse;
-}
-
-.checkmark{
-    height: 11px;
-    width: 11px;
-    margin-right: 5px;
-    border: 1px solid #32435f;
-    border-radius: 15%;
-    transition-duration: 0.2s;  
-}
-
-.checkmark:hover{
-    background-color: #32435f76;
-}
-
-.i:hover{
-    cursor: pointer;
-}
-
-.custom_checkbox:checked ~ .checkmark{
-    background-image: url(check.png);
-    background-color: #32435fd0;
-    background-position: 50% 50%;
-    background-size: cover;
-}
-
-.checkmark:active{
-    background-color: #32435f;
-}
-
-.param_button{
-    border: 1px solid #32435f;
-    color: #32435f;
-    display: block;
-    padding: 3px;
-    margin: 0 auto;
-    width: 100px;
-    text-align: center;
-    border-radius: 15px;
-    transition-duration: 0.3s;
-}
-
-.param_button:hover{
-    background-color: #32435fd0;
-    color: #e1dcd9;
-    cursor: pointer;
-}
-
-.cards_box{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
 }
 
 .card{
-    max-width: 400px;
-    max-height: 200px;
-    min-height: 200px;
+    height: 300px;
+    width: 210px;
     display: flex;
-    margin: 5px;
-    background: white;
-    overflow: hidden;
+    flex-direction: column;
     box-shadow: 0px 0px 7px 1px #32435f5a;
+    transition-duration: 0.3s;
+    margin: 5px;
+    overflow: hidden;
 }
 
-.card_photo{
-    max-width: 50%;
-    min-width: 50%;
+div.card_photo{
     overflow: hidden;
     display: flex;
     justify-content: center;
-    position: relative;
-}
-
-.card_photo>img{
-    transition-duration: 0.4s;
+    size: cover;
+    height: 75%;
 }
 
 img.photo{
-    overflow: hidden;
-    filter: grayscale(0.7);
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
 }
 
-.card_photo:hover>img{
-    transform: scale(1.2);
-    filter: grayscale(0);
-    cursor: pointer;
+div.cards_inf{
+    height: 25%;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.cards_inf{
-    padding: 0px 10px;
+.cards_inf > p{
+    font-size: 17px;
+    font-weight: 600;
 }
 
-p.card_name{
+.cards_inf > span{
+    font-size: 14px;
+}
+
+div.card:hover{
+    transform: scale(1.05);
+}
+
+li.name_link{
     font-size: 20px;
+    display: flex;
+    align-items: center;
+}
+
+li.name_link::before{
+    content: "\f105";
+    font-family: fontawesome;
+    font-size: 13px;
+    margin: 0px 2px;
+}
+
+.name_link:hover{
+    background: #32435f5a;
+    color: white;
+    border-radius: 5px;
+}
+
+.name_link:hover > a > div{
+    color:white;
+}
+
+li.name_link:active{
+    background: #32435f7c;
+}   
+
+a.name{
+    display: block;
+    width: 90%;
 }
 
 footer{
@@ -226,7 +195,7 @@ footer{
 
 #checkbox_menu{
     position: fixed;
-    z-index: 5;
+    z-index: 10;
     margin: 20px;
     opacity: 0;
     height: 10px;
@@ -252,6 +221,7 @@ i{
     height: 30px;
     width: 30px;
 }
+
 
 #option1,
 #option2{
@@ -284,30 +254,25 @@ i{
 }
 
 @media (max-width: 1260px) {
-
-    .cards_box{
-        margin-top: 35px;
-    }
     
     .center_block{
-        width:100%
+        width:90%;
     }
 
     .params{
         transition-duration: 0.5s;
-        width: 20px;
         position: absolute;
+        margin: 5px;
     }
 
     .param_menu{
-        padding: 5px;
-        transform: translateX(-320px);
+        transform: translateX(-400px);
         overflow: hidden;
         transition-duration: 0.5s;
-        margin: 0;
     }
 
     .cards_box{
+        margin-top: 40px;
         width: 100%;
         z-index: 1;
     }
@@ -384,10 +349,7 @@ i{
     }
 }
 
-@media (max-width: 840px) {
-    .card{
-        width: 100%;
-    }
+@media (max-width: 510px) {
 
     .center_block{
         width: 100%;
@@ -407,15 +369,6 @@ i{
 
     #option2:checked ~ .log{
         width: 250px;
-    }
-
-}
-
-@media (max-width: 430px) {
-
-    .cards_box{
-        min-height: 0%;
-        width: 95%;
     }
     
 }

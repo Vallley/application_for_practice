@@ -1,8 +1,12 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block title %}
+{{person.name}}
+{% endblock %}
+
 {% block css_rools %}
-<link rel="stylesheet" href="{% static 'css/person1.css' %}">
+<link rel="stylesheet" href="{% static 'css/person2.css' %}">
 {% endblock %}
 
 {% block content %}

@@ -1,9 +1,8 @@
 from django.db import models
 from django.urls import reverse
-from django.db.models import Count
 
 class Production(models.Model):
-    title = models.CharField(max_length=250)
+    title = models.CharField(max_length=250, verbose_name='Вид продукции')
 
     def __str__(self):
         return self.title
@@ -14,7 +13,7 @@ class Production(models.Model):
         ordering = ['title']    
 
 class Place(models.Model):
-    place = models.CharField(max_length=250)
+    place = models.CharField(max_length=250, verbose_name='Местоположение')
 
     def __str__(self):
         return self.place
@@ -46,19 +45,19 @@ class Firm(models.Model):
         ordering = ['title']    
 
 class Person(models.Model):
-    name = models.CharField(max_length=250)
-    slug = models.SlugField(max_length=250, verbose_name='url', unique=True)
-    main_inf = models.TextField()
-    photo = models.ImageField(upload_to='photos/person/%Y/%m/%d/')    
-    age = models.SmallIntegerField()
-    gender = models.CharField(max_length=100)
-    adress = models.CharField(max_length=300)
-    nationality = models.CharField(max_length=100)
-    family_status = models.CharField(max_length=100)
-    profession = models.CharField(max_length=100)
-    education = models.TextField()
-    experience = models.TextField()
-    current_place = models.ForeignKey(Firm, on_delete=models.CASCADE, related_name='person')
+    name = models.CharField(max_length=250, verbose_name='Имя')
+    slug = models.SlugField(max_length=250, verbose_name='url', unique=True, blank=True)
+    main_inf = models.TextField(verbose_name='Основная информация')
+    photo = models.ImageField(upload_to='photos/person/%Y/%m/%d/', verbose_name='Фото')    
+    age = models.SmallIntegerField(verbose_name='Возраст')
+    gender = models.CharField(max_length=100, verbose_name='Пол')
+    adress = models.CharField(max_length=300, verbose_name='Адрес')
+    nationality = models.CharField(max_length=100, verbose_name='Национальность')
+    family_status = models.CharField(max_length=100, verbose_name='Семейный статус')
+    profession = models.CharField(max_length=100, verbose_name='Профессия')
+    education = models.TextField(verbose_name='Образование')
+    experience = models.TextField(verbose_name='Опыт работы')
+    current_place = models.ForeignKey(Firm, on_delete=models.CASCADE, related_name='person', verbose_name='Настоящее место работы')
     telegram = models.CharField(max_length=100, blank=True)
     viber = models.CharField(max_length=100, blank=True)
     skype = models.CharField(max_length=100, blank=True)

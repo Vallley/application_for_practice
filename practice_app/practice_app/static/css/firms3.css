@@ -2,6 +2,10 @@
     color: #32435f;
 }
 
+a{
+    text-decoration: none;
+}
+
 body{
     margin: 0;
 }
@@ -120,8 +124,12 @@ section.help{
 section.main_inf{
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: start;
     margin: 0px 130px;
+}
+
+section.main_inf>p{
+    align-self: center;
 }
 
 section.main_inf > span{

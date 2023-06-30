@@ -1,14 +1,14 @@
 from django.contrib import admin
 from django import forms
 from ckeditor_uploader.widgets import CKEditorUploadingWidget
-from .models import *
+from . import models
 from django.utils.html import format_html
 
 class PostAdminForm(forms.ModelForm):
     
 
     class Meta:
-        model = Person
+        model = models.Person
         fields = '__all__'
 
 class FirmAdmin(admin.ModelAdmin):
@@ -43,7 +43,7 @@ class PersonAdmin(admin.ModelAdmin):
     list_filter = ('current_place', )
     fields = ('name', 'slug', 'profession', 'current_place', 'main_inf', 'photo', 'age', 'gender', 'adress', 'nationality', 'family_status', 'education', 'experience', 'telegram', 'viber', 'skype', 'mail', 'phone')
 
-admin.site.register(Production)
-admin.site.register(Place)
-admin.site.register(Firm, FirmAdmin)
-admin.site.register(Person, PersonAdmin)
+admin.site.register(models.Production)
+admin.site.register(models.Place)
+admin.site.register(models.Firm, FirmAdmin)
+admin.site.register(models.Person, PersonAdmin)
