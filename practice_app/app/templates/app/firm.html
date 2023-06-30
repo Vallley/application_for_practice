@@ -21,12 +21,12 @@
             <span>Адресс: {{firm.location}}</span><br>
             <span>Нас можно найти: 
             {% for place in firm.place.values %}
-                {{place.place}}
+                {{place.place}},
             {% endfor %}
             </span>
             <span>Продукция:
             {% for prod in firm.productions.values %}
-                {{prod.title}}
+                {{prod.title}},
             {% endfor %}
             </span>
         </section>
