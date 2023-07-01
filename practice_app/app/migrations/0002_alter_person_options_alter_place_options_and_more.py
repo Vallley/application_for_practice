@@ -4,27 +4,28 @@ from django.db import migrations
 
 
 class Migration(migrations.Migration):
+
     dependencies = [
-        ("app", "0001_initial"),
+        ('app', '0001_initial'),
     ]
 
     operations = [
         migrations.AlterModelOptions(
-            name="person",
-            options={"ordering": ["name"]},
+            name='person',
+            options={'ordering': ['name']},
         ),
         migrations.AlterModelOptions(
-            name="place",
-            options={"ordering": ["place"]},
+            name='place',
+            options={'ordering': ['place']},
         ),
         migrations.RenameField(
-            model_name="person",
-            old_name="title",
-            new_name="name",
+            model_name='person',
+            old_name='title',
+            new_name='name',
         ),
         migrations.RenameField(
-            model_name="place",
-            old_name="title",
-            new_name="place",
+            model_name='place',
+            old_name='title',
+            new_name='place',
         ),
     ]
