@@ -4,25 +4,24 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('app', '0003_rename_slag_firm_slug_rename_slag_person_slug'),
+        ("app", "0003_rename_slag_firm_slug_rename_slag_person_slug"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='person',
-            name='skype',
+            model_name="person",
+            name="skype",
             field=models.CharField(blank=True, max_length=100),
         ),
         migrations.AlterField(
-            model_name='person',
-            name='telegram',
+            model_name="person",
+            name="telegram",
             field=models.CharField(blank=True, max_length=100),
         ),
         migrations.AlterField(
-            model_name='person',
-            name='viber',
+            model_name="person",
+            name="viber",
             field=models.CharField(blank=True, max_length=100),
         ),
     ]
