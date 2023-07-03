@@ -30,7 +30,7 @@ class Firm(models.Model):
     title = models.CharField(max_length=250, verbose_name="Название")
     slug = models.SlugField(max_length=250, verbose_name="url", unique=True, blank=True)
     main_inf = models.TextField(verbose_name="Основная информация")
-    photo = models.ImageField(upload_to="photos/firm/%Y/%m/%d/", verbose_name="Фото")
+    photo = models.ImageField(upload_to="photos/firm/%Y/%m/%d/", verbose_name="Фото", blank=True)
     location = models.CharField(max_length=400, verbose_name="Адрес")
     productions = models.ManyToManyField(
         Production, blank=True, related_name="firm", verbose_name="Вид продукции"
@@ -56,7 +56,7 @@ class Person(models.Model):
     name = models.CharField(max_length=250, verbose_name="Имя")
     slug = models.SlugField(max_length=250, verbose_name="url", unique=True, blank=True)
     main_inf = models.TextField(verbose_name="Основная информация")
-    photo = models.ImageField(upload_to="photos/person/%Y/%m/%d/", verbose_name="Фото")
+    photo = models.ImageField(upload_to="photos/person/%Y/%m/%d/", verbose_name="Фото", blank=True)
     age = models.SmallIntegerField(verbose_name="Возраст")
     gender = models.CharField(max_length=100, verbose_name="Пол")
     adress = models.CharField(max_length=300, verbose_name="Адрес")

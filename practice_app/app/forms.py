@@ -126,7 +126,5 @@ class PersonForm(forms.ModelForm):
         }
 
     def clean_slug(self):
-        print(self.cleaned_data["name"])
         self.cleaned_data["slug"] = slugify(unidecode(self.cleaned_data["name"]))
-        print(self.cleaned_data["slug"])
         return self.cleaned_data["slug"]

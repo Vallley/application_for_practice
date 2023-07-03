@@ -53,10 +53,6 @@ class FirmView(MenuInf, ListView):
     context_object_name = "firms"
     paginate_by = 10
 
-    def get_max_count(self):
-        print("5")
-        return 5
-
 
 class FilterFirmsView(MenuInf, ListView):
     template_name = "app/firms_page.html"
