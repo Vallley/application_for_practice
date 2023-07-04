@@ -25,4 +25,4 @@ jobs:
       - name: Run tests
         run: |
           cd ./practice_app
-          python3 manage.py tests
+          python3 manage.py test
