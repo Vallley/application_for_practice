@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+{{person.name}}
+{% endblock %}
+
+{% block css_rools %}
+<link rel="stylesheet" href="{% static 'css/person2.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="main_section">
+    <div class="center_block">
+        <div class="info_block">
+            <div class="photo_block">
+                <img src="{{person.photo.url}}">
+            </div>
+            <div class="main_inf">
+                <p>{{person.name}}</p>
+                <span> {{person.main_inf}}</span>
+
+            </div>
+            <div class="other_inf">
+                <p>ОСНОВНАЯ ИНФОРМАЦИЯ</p>
+                <span>Возраст: </span>
+                <span>{{person.age}}</span><br>
+                <span>Пол: </span>
+                <span>{{person.gender}}</span><br>
+                <span>Адрес: </span>
+                <span>{{person.adress}}</span><br>
+                <span>Национальность: </span>
+                <span>{{person.nationality}}</span><br>
+                <span>Семейное положение: </span>
+                <span>{{person.family_status}}</span><br>
+                <span>Профессия: </span>
+                <span>{{person.profession}}</span><br>
+                
+            </div>
+            <div class="education">
+                <p>ОБРАЗОВАНИЕ</p>
+                <span>{{person.education}}</span>
+            </div>
+            <div class="experience">
+                <p>ОПЫТ</p>
+                <span>{{person.experience}}</span>
+                <p>НАСТОЯЩЕЕ МЕСТО РАБОТЫ</p>
+                <a class="workplace" href={{person.current_place.get_absolute_url}}>{{person.current_place.title}}</a>
+            </div>
+            <div class="contacts">
+                <p>СОЦИАЛЬНЫЕ СЕТИ</p>
+                <i class="fa-brands fa-telegram"></i>
+                <span>{{person.telegram}}</span><br>
+                <i class="fa-brands fa-viber"></i>
+                <span>{{person.viber}}</span><br>
+                <i class="fa-brands fa-skype"></i>
+                <span>{{person.skype}}</span><br>
+                <p>КОНТАКТЫ</p>
+                <i class="fa-regular fa-envelope"></i>
+                <span>{{person.mail}}</span><br>
+                <i class="fa-solid fa-phone"></i>
+                <span>{{person.number}}</span><br>
+            </div>
+        </div>    
+    </div>
+</section>
+{% endblock %}

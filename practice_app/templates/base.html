@@ -1,0 +1,132 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script src="https://kit.fontawesome.com/ab6e9cb896.js" crossorigin="anonymous"></script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width-device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <style>
+            .pagination{
+                background: #e1dcd95f;
+                text-align: center;
+                font-size: 25px;
+            }
+            .other_page{
+                color: #32435f;
+                font-size: 20px;
+            }
+            a.other_page>i{
+                color: #32435f;
+                font-size: 18px;
+            }
+            .message-error{
+                border:2px solid rgb(144, 0, 0);
+                width: 60%;
+                text-align: center;
+                margin: 10px auto;
+                padding: 10px;
+                color: rgb(144, 0, 0);
+                background: rgba(144, 0, 0, 0.1);
+            }
+            .message-success{
+                border:1px solid rgb(18, 135, 0);
+                width: 60%;
+                text-align: center;
+                margin: 10px auto;
+                padding: 10px;
+                color: rgb(18, 135, 0);
+                background: rgb(18, 135, 0, 0.1);
+            }
+            .message-warning{
+                border:1px solid rgb(194, 184, 0);
+                width: 60%;
+                text-align: center;
+                margin: 10px auto;
+                padding: 10px;
+                color: rgb(194, 184, 0);
+                background: rgb(194, 184, 0, 0.1);
+            }
+            .message-info{
+                border:1px solid rgb(0, 129, 194);
+                width: 60%;
+                text-align: center;
+                margin: 10px auto;
+                padding: 10px;
+                color: rgb(0, 129, 194);
+                background: rgb(0, 129, 194, 0.1);
+            }
+        </style>
+        {% block css_rools %}{% endblock %}
+        
+        <title>{% block title %}{% endblock %}</title>
+    </head>
+    <body>
+        <header>
+            <div class="main_menu">
+                <div class="center_block">
+                    <div class="radio-container1">
+                        <input type="radio" name="option" id="option1">
+                        <label for="option1" class="menu_hamburger"><i class="fa-solid fa-ellipsis-vertical"></i></label>
+                        <ul class="media_menu">
+                            <li><a href="{% url 'firms_page' %}">Предприятия</a></li>
+                            <li><a href="{% url 'people_page' %}">Люди</a></li>
+                        </ul>
+                    </div>    
+                    <div class="radio-container2">
+                        <input type="radio" name="option" id="option2">
+                        <label for="option2" class="log_hamburger"><i class="fa-solid fa-user"></i></label>
+                        {% if request.user.is_authenticated %}
+                        <ul class="log">
+                            <li><a href="{% url 'logout' %}">Выйти</a></li>
+                        </ul>
+                        {% else %}
+                        <ul class="log">
+                            <li><a href="{% url 'register' %}">Зарегистрироваться</a></li>
+                            <li><a href="{% url 'login' %}">Войти</a></li>
+                        </ul>
+                        {% endif %}
+                    </div> 
+                </div>       
+
+               
+            </div>
+        </header>
+
+        {% if messages %}
+        
+        {% for message in messages %}
+        
+        <div class="message-{{message.tags}}">
+            {{message}}
+        </div>
+
+        {% endfor %}
+
+        {% endif %}
+
+        {% block content %}{% endblock %}
+        {% if page_obj.has_other_pages %}
+            <div class="pagination">
+                <div class="nav_links">
+                    {% if page_obj.has_previous %}
+                    <a class="other_page" href="?page={{ page_obj.next_previous_number }}"><i class="fa-solid fa-angle-up fa-rotate-270"></i></a>
+                    {% endif %}
+                    {% for p in page_obj.paginator.page_range %}
+                        {% if page_obj.number == p %}
+                            <span class="cuurent_page">{{ p }}</span>
+                        {% elif p > page_obj.number|add:-3 and p < page_obj.number|add:3 %}
+                            <a class="other_page" href="?page={{ p }}">{{ p }} </a>
+                        {% endif %}    
+                    {% endfor %}
+                    {% if page_obj.has_next %}
+                        <a class="other_page" href="?page={{ page_obj.next_page_number }}"><i class="fa-solid fa-angle-up fa-rotate-90"></i></a>
+                    {% endif %}
+                </div>
+            </div>
+        {% endif %}  
+        <footer>
+
+        </footer>
+    </body>
+</html>
